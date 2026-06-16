@@ -924,13 +924,13 @@
       </dependency>
 
       <!-- Bouncy Castle BOM. Controlling the versions of our other Bouncy Castle dependencies. -->
-      <dependency>
-        <groupId>org.bouncycastle</groupId>
-        <artifactId>bc-jdk18on-bom</artifactId>
-        <version>${bouncycastle.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+<!--      <dependency>-->
+<!--        <groupId>org.bouncycastle</groupId>-->
+<!--        <artifactId>bc-jdk18on-bom</artifactId>-->
+<!--        <version>${bouncycastle.version}</version>-->
+<!--        <type>pom</type>-->
+<!--        <scope>import</scope>-->
+<!--      </dependency>-->
 
       <dependency>
         <groupId>com.fasterxml</groupId>
