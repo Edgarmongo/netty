@@ -1,6 +1,5 @@
 package com.idom.mynettydemo.bigfile;
 
-import org.springframework.core.io.ClassPathResource;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -10,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @program: netty
- * @description: 主程序
+ * @description: 主程序  不完整，不能用
  * @author: Timo
  * @create: 2026-06-16 23:21
  **/
@@ -77,10 +76,10 @@ public class ProductionTBTransfer {
      * 加载配置文件
      */
     private boolean loadConfig() {
-        ClassPathResource resource = new ClassPathResource("config/transfer.properties");
+        InputStream resource = ClassLoader.getSystemResourceAsStream("config/transfer.properties");
 //        InputStream input = resource.getInputStream();
 //        File file = new File("config/transfer.properties");
-        try (InputStream input = resource.getInputStream()) {
+        try (InputStream input = resource) {
             java.util.Properties prop = new java.util.Properties();
             prop.load(input);
 
