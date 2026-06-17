@@ -34,6 +34,7 @@ public class ClientHandler {
             @Override
             public void completed(Integer bytesRead, ByteBuffer attachment) {
                 if (bytesRead > 0) {
+                    //flip()方法是可以完成读写状态切换，如从读编写，同时把position指针归位
                     attachment.flip();
                     String msg = new String(buffer.array(), 0, buffer.limit());
                     System.out.println("服务器返回：" + msg);

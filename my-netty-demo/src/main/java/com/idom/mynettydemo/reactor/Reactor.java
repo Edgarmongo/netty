@@ -35,6 +35,7 @@ public class Reactor implements Runnable {
         server.configureBlocking(false);
         //注册server accept事件,告诉selector，你只需要关心accept事件就行了
         SelectionKey key = server.register(this.selector, SelectionKey.OP_ACCEPT);
+        //把key和Acceptor对象绑定在一起
         key.attach(new Acceptor(server));
     }
 

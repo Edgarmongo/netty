@@ -17,16 +17,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>9</version>
-  </parent>
+<!--  <parent>-->
+<!--    <groupId>org.sonatype.oss</groupId>-->
+<!--    <artifactId>oss-parent</artifactId>-->
+<!--    <version>9</version>-->
+<!--  </parent>-->
 
   <groupId>io.netty</groupId>
   <artifactId>netty-parent</artifactId>
   <packaging>pom</packaging>
-  <version>4.2.16.Final-SNAPSHOT</version>
+  <version>4.2.1.Final</version>
 
   <name>Netty</name>
   <url>https://netty.io/</url>
@@ -708,8 +708,8 @@
   </profiles>
 
   <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
     <maven.compiler.release />
     <javadoc.release>9</javadoc.release>
     <javadoc.source>9</javadoc.source>
@@ -924,13 +924,13 @@
       </dependency>
 
       <!-- Bouncy Castle BOM. Controlling the versions of our other Bouncy Castle dependencies. -->
-<!--      <dependency>-->
-<!--        <groupId>org.bouncycastle</groupId>-->
-<!--        <artifactId>bc-jdk18on-bom</artifactId>-->
-<!--        <version>${bouncycastle.version}</version>-->
-<!--        <type>pom</type>-->
-<!--        <scope>import</scope>-->
-<!--      </dependency>-->
+      <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bc-jdk18on-bom</artifactId>
+        <version>${bouncycastle.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
 
       <dependency>
         <groupId>com.fasterxml</groupId>
@@ -1560,34 +1560,34 @@
           </dependency>
         </dependencies>
       </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>xml-maven-plugin</artifactId>
-        <version>1.0.1</version>
-        <executions>
-          <execution>
-            <id>check-style</id>
-            <goals>
-              <goal>check-format</goal>
-            </goals>
-            <phase>validate</phase>
-          </execution>
-        </executions>
-        <configuration>
-          <formatFileSets>
-            <formatFileSet>
-              <directory>${project.basedir}</directory>
-              <includes>
-                <include>**/pom.xml</include>
-              </includes>
-              <excludes>
-                <exclude>**/target/**</exclude>
-              </excludes>
-            </formatFileSet>
-          </formatFileSets>
-          <useDefaultFormatFileSet>false</useDefaultFormatFileSet>
-        </configuration>
-      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.codehaus.mojo</groupId>-->
+<!--        <artifactId>xml-maven-plugin</artifactId>-->
+<!--        <version>1.0.1</version>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>check-style</id>-->
+<!--            <goals>-->
+<!--              <goal>check-format</goal>-->
+<!--            </goals>-->
+<!--            <phase>validate</phase>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--        <configuration>-->
+<!--          <formatFileSets>-->
+<!--            <formatFileSet>-->
+<!--              <directory>${project.basedir}</directory>-->
+<!--              <includes>-->
+<!--                <include>**/pom.xml</include>-->
+<!--              </includes>-->
+<!--              <excludes>-->
+<!--                <exclude>**/target/**</exclude>-->
+<!--              </excludes>-->
+<!--            </formatFileSet>-->
+<!--          </formatFileSets>-->
+<!--          <useDefaultFormatFileSet>false</useDefaultFormatFileSet>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
@@ -1876,16 +1876,16 @@
           </excludeArtifacts>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>1.7.0</version>
-        <configuration>
-          <serverId>central-portal-snapshots</serverId>
-          <nexusUrl>https://central.sonatype.com/repository/maven-snapshots</nexusUrl>
-          <skipRemoteStaging>true</skipRemoteStaging>
-        </configuration>
-      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.sonatype.plugins</groupId>-->
+<!--        <artifactId>nexus-staging-maven-plugin</artifactId>-->
+<!--        <version>1.7.0</version>-->
+<!--        <configuration>-->
+<!--          <serverId>central-portal-snapshots</serverId>-->
+<!--          <nexusUrl>https://central.sonatype.com/repository/maven-snapshots</nexusUrl>-->
+<!--          <skipRemoteStaging>true</skipRemoteStaging>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
     </plugins>
 
     <pluginManagement>

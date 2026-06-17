@@ -1,7 +1,7 @@
 package com.idom.mynettydemo.bio;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.*;
+import java.util.Objects;
 
 /**
  * @program: netty
@@ -35,8 +35,29 @@ import java.io.FileInputStream;
 public class JavaLocalFileBIO {
     public static void main(String[] args) throws Exception {
 
+
+
+    }
+
+    public static void writeStream() throws Exception {
+        File file = new File("D:\\tmp\\outtest.txt");
+
+        byte[] wbuf = new byte[1024];
+
+        try(OutputStream ops = new FileOutputStream(file)){
+
+            ops.write(wbuf);
+        }
+
+    }
+
+    public static void inputStream(){
         File file = new File("D:\\tmp\\biotest.txt");
-        try (FileInputStream fis = new FileInputStream(file)) {
+        File file2 = new File("D:\\tmp\\outtest.txt");
+        try (FileInputStream fis = new FileInputStream(file);
+             OutputStream ops = new FileOutputStream(file2)) {
+
+
             byte[] buffer = new byte[1024];
             int length;
             // 循环读取，当返回 -1 时表示文件读取完毕
@@ -45,9 +66,14 @@ public class JavaLocalFileBIO {
                 // 注意：若直接打印文本可能出现中文乱码，需视文件编码而定
                 String content = new String(buffer, 0, length);
                 System.out.print(content);
+                //通过输出流把缓冲区中的数据写出去
+                ops.write(buffer,0,length);
             }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-
 
     }
 
